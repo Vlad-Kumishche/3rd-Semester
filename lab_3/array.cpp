@@ -52,7 +52,7 @@ int Array::get(unsigned i) {
 	}
 }
 
-//Set element by index
+//Input element by index
 void Array::handle_set(unsigned i) {
 	cout << "arr[" << i << "] = ";
 	bool failInput;
@@ -119,6 +119,7 @@ std::ostream& operator<<(std::ostream &out, const Array &point) {
 	return out;
 }
 
+//Descending Shell sort
 void Array::shellSort() {
 	for (int gap = this->length / 2; gap > 0; gap /= 2)
 	{
