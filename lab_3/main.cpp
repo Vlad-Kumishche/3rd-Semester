@@ -30,6 +30,9 @@ int main() {
 	
 	//Overloading > operator
 	cout << ((c > b) ? "c more than b" : "b more than c") << endl;
+	
+	//Overloading + operator
+	cout << "Array a + c: " << a + c << endl;
 
 	/*-------------------
 	9th point of the task
