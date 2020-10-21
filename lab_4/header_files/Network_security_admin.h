@@ -1,7 +1,7 @@
 #pragma once
 #include "Network_admin.h"
 class Network_security_admin :
-	virtual public Network_admin
+	public Network_admin
 {
 protected:
 	string Specialization;

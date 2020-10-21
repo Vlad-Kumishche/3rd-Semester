@@ -2,7 +2,7 @@
 
 #include "Computer_admin.h"
 class System_architect :
-	virtual public Computer_admin
+	public Computer_admin
 {
 protected:
 	int NumberOfRegalia;
