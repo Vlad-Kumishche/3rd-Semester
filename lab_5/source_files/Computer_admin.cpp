@@ -2,6 +2,10 @@
 
 void Computer_admin::Show()
 {
+	cout << endl << "Full Name: " << this->FullName << endl;
+	cout << "Company Name: " << this->CompanyName << endl;
+	cout << "Access Password: " << this->AccessPass << endl;
+	cout << "Salary: " << this->Salary << endl;
 	cout << "OS Name: " << this->OSName << endl;
 	cout << "OS Version: " << this->OSVersion << endl;
 	cout << "Tool Pack: " << this->ToolPack << endl;

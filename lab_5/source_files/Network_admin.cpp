@@ -3,6 +3,10 @@
 
 void Network_admin::Show()
 {
+	cout << endl << "Full Name: " << this->FullName << endl;
+	cout << "Company Name: " << this->CompanyName << endl;
+	cout << "Access Password: " << this->AccessPass << endl;
+	cout << "Salary: " << this->Salary << endl;
 	cout << "Type of network: " << this->TypeOfNetwork << endl;
 }
 
