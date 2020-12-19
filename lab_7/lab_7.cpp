@@ -403,6 +403,32 @@ public:
 	{
 		return !(operator == it);
 	}
+	Iterator& operator=(const Iterator& it) { node = it.node; return *this; }
+	T& operator*()
+	{
+		if (node_ == nullptr)
+		{
+			throw Exception("Empty iterator");
+		}
+		return node_->data_;
+	}
+	T* operator->()
+	{
+		if (node == nullptr)
+		{
+			throw Exception("Empty iterator");
+		}
+		return &node_->data_;
+	}
+	Iterator& operator++()
+	{
+		if (node_ == nullptr)
+		{
+			throw Exception("Empty iterator");
+		}
+		this->NextNode();
+		return *this;
+	}
 
 	Iterator& operator[](int i)
 	{
@@ -461,7 +487,7 @@ public:
 
 	Node<T>* FindNode(T data)
 	{
-		Node<T>* node_ = btree_->FindNode(data);
+		node_ = btree_->FindNode(data);
 		if (node_ != nullptr)
 		{
 			cout << node_->data_;
@@ -545,8 +571,12 @@ int main()
 	cout << endl << "Let's add a duplicate and see what happens:" << endl;
 	it.Push(Detail()); //Duplicate
 	
-	cout << endl << "Let's find the specific node (name = \"beam\"):" << endl;
+	cout << endl << "Let's find the specific node (id = 1; name = \"beam\", mass = 295):" << endl;
 	it.FindNode(Detail(1, "beam", 295));
+	
+	cout << endl << "Next item:" << endl;
+	++it;
+	it.Print();
 
 	cout << endl << "Let's remove some values:" << endl;
 	it[4].DeleteNode();
@@ -556,9 +586,11 @@ int main()
 	cout << endl << "Let's print the resulting tree:" << endl;
 	it.Print();
 
-	cout << endl << "Let's find the specific node again (name = \"lag\"):" << endl;
+	cout << endl << "Let's find the specific node by data again (id = 7; name = \"lag\", mass = 512):" << endl;
 	it.FindNode(Detail(7, "lag", 512));
 
-	cout << endl << "Let's find the deleted node (id = \"9\"):" << endl;
+	cout << endl << "Let's find the deleted node by id (id = 9):" << endl;
 	it[9].PrintData();
+
+
 };
