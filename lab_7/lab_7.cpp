@@ -576,7 +576,7 @@ int main()
 	
 	cout << endl << "Next item:" << endl;
 	++it;
-	it.Print();
+	it.PrintData();
 
 	cout << endl << "Let's remove some values:" << endl;
 	it[4].DeleteNode();
