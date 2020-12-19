@@ -407,7 +407,10 @@ public:
 	Iterator& operator[](int i)
 	{
 		node_ = FindNode(T(i, "", 0));
-		return *this;
+		if (node_)
+		{
+			return *this;
+		}
 	}
 
 	//Returns the data that the node contains
@@ -442,7 +445,8 @@ public:
 	//Prints the data of the current node
 	void PrintData()
 	{
-		cout << node_->data_;
+		if (node_)
+			cout << node_->data_;
 	}
 
 	void Print()
@@ -458,7 +462,10 @@ public:
 	Node<T>* FindNode(T data)
 	{
 		Node<T>* node_ = btree_->FindNode(data);
-		cout << node_->data_;
+		if (node_ != nullptr)
+		{
+			cout << node_->data_;
+		}
 		return node_;
 	}
 
@@ -551,4 +558,7 @@ int main()
 
 	cout << endl << "Let's find the specific node again (name = \"lag\"):" << endl;
 	it.FindNode(Detail(7, "lag", 512));
+
+	cout << endl << "Let's find the deleted node (id = \"9\"):" << endl;
+	it[9].PrintData();
 };
